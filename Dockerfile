@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     php5-cli
 
-ENV DOCKER_VERSION 1.9.1-cs2
+ENV DOCKER_VERSION 1.9.1
 RUN curl -fsSL --create-dirs --output /usr/local/bin/docker \
         "https://get.docker.com/builds/$(uname -s)/$(uname -m)/docker-${DOCKER_VERSION}" \
  && chmod +x /usr/local/bin/docker
