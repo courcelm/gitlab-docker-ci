@@ -1,0 +1,10 @@
+runner:
+  build: . # Can't be below this since we have to add files in public/
+  volumes:
+   - /var/run/docker.sock:/var/run/docker.sock
+   #- /srv/gitlab-runner/config:/etc/gitlab-runner
+  environment:
+   - REGISTER_NON_INTERACTIVE=TRUE
+   - REGISTRATION_TOKEN=
+   - CI_SERVER_URL=
+   - RUNNER_EXECUTOR=shell
