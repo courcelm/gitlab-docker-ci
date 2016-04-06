@@ -1,8 +1,5 @@
 FROM gitlab/gitlab-runner:latest
 
-# Change the VOLUME mapping from base image, so docker login/push work.
-VOLUME ["/home/gitlab-runner", "/home/gitlab-runner"]
-
 RUN apt-get update && apt-get install -y \
     curl \
     php5-cli
