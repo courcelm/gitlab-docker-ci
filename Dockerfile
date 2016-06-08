@@ -5,8 +5,8 @@ RUN apt-get update && apt-get install -yqq --no-install-recommends \
     php5-cli
 
 ENV DOCKER_VERSION 1.11.1
-RUN curl -fsSL --create-dirs --output /usr/local/bin/docker \
-        "https://get.docker.com/builds/$(uname -s)/$(uname -m)/docker-${DOCKER_VERSION}" \
+RUN curl --compressed -fsSL --create-dirs --output /usr/local/bin/docker \
+        "https://get.docker.com/builds/$(uname -s)/$(uname -m)/docker-${DOCKER_VERSION}.tgz" \
  && chmod +x /usr/local/bin/docker
 RUN apt-get clean autoclean && apt-get autoremove -y
 
