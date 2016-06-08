@@ -1,8 +1,6 @@
 # gitlab-docker-ci
 
-[GitLab CI](https://about.gitlab.com/gitlab-ci/) runner with access to host Docker daemon.
-
-[![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/)
+[GitLab CI](https://about.gitlab.com/gitlab-ci/) runner with access to host Docker daemon. PHP-focused.
 
 ## Motivation
 
@@ -13,6 +11,18 @@ Why not re-use one of the existing images out there?
 You'll notice this project helps harmonize the host's `docker` group gid with the container.
 We don't wholesale re-install Docker client in the container when adding some libraries will do.
 And writing my own let me understand the tech, better. :-)
+
+### Docker Engine/Docker Compose version
+
+The `Dockerfile` contains variables for specifying particular versions of Engine and Compose;
+you may need to adjust the Engine version in particular to match your cloud provider's
+current version. At time of writing, that was 1.9.1 for Docker Cloud, though 1.10+
+has been available for some time. You may need to fork and adjust the `Dockerfile`
+to meet your needs.
+
+### PHP-focused
+
+I mostly work in PHP, so it's helpful to install a few tools like composer.
 
 ## Usage
 

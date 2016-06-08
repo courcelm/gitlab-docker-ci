@@ -1,10 +1,10 @@
 FROM gitlab/gitlab-runner:latest
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -yqq --no-install-recommends \
     curl \
     php5-cli
 
-ENV DOCKER_VERSION 1.9.1
+ENV DOCKER_VERSION 1.11.1
 RUN curl -fsSL --create-dirs --output /usr/local/bin/docker \
         "https://get.docker.com/builds/$(uname -s)/$(uname -m)/docker-${DOCKER_VERSION}" \
  && chmod +x /usr/local/bin/docker
