@@ -2,14 +2,15 @@ FROM gitlab/gitlab-runner:latest
 
 RUN apt-get update && apt-get install -yqq --no-install-recommends \
     curl \
-    php5-cli
+    php5-cli \
+    && apt-get clean autoclean && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV DOCKER_VERSION 1.11.1
-RUN curl -fsSL --create-dirs --output /usr/local/bin/docker \
+RUN curl -fsSL \
     "https://get.docker.com/builds/$(uname -s)/$(uname -m)/docker-${DOCKER_VERSION}.tgz" | tar xz > docker \
     && mv docker/docker /usr/local/bin/docker \
     && rm -rf docker
-RUN apt-get clean autoclean && apt-get autoremove -y
 
 # Install docker-compose
 ENV DOCKER_COMPOSE_VERSION 1.7.1
